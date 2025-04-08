@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "open http://localhost:30032 && nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "canvas": "^3.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "nostr-tools": "^2.10.4",
+    "puppeteer": "^24.3.1",
+    "smart-widget-builder": "^1.0.2",
+    "ws": "^8.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
