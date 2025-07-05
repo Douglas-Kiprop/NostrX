@@ -1,4 +1,4 @@
-# Nostr Smart Widget Previewer
+# Dynamic Basic Smart Widget Boiler Plate
 
 A boiler plate to start building dynamic nostr smart widgets
 
