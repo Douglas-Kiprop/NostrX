@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "open http://localhost:30032 && nodemon index.js"
+    "dev": "start http://localhost:30032 && nodemon index.js"
   },
   "keywords": [],
   "author": "",
