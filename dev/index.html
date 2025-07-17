@@ -12,29 +12,36 @@
     <link href="/styles.css" rel="stylesheet">
 </head>
 <body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root">
-    <div id="chat-container">
-        <div id="chat-area"></div>
-        <div id="input-area">
-            <select id="language">
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <option value="es">Spanish</option>
-            </select>
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button id="send-btn">Send</button>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div id="chat-container">
+            <div id="chat-area"></div>
+            <div id="input-area">
+                <select id="language">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                </select>
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+        <div id="suggestion-bubbles">
+            <!-- Suggestion bubbles will be added here by script.js -->
         </div>
     </div>
-    <div id="suggestion-bubbles">
-        <!-- Suggestion bubbles will be added here by script.js -->
-    </div>
-</div>
-<script type="module">
+
+    <!-- Import NostrTools and Smart Widget Handler -->
+    <script type="module">
         import * as NostrTools from 'https://esm.sh/nostr-tools@2.10.4';
-        console.log('NostrTools loaded:', NostrTools);
         window.NostrTools = NostrTools;
+        console.log('NostrTools loaded:', window.NostrTools);
+
+        import SWHandler from 'https://esm.sh/smart-widget-handler@latest'; // Import the smart-widget-handler
+        window.SWHandler = SWHandler;
+        console.log('SWHandler loaded:', window.SWHandler);
     </script>
+
     <script>
         window.BACKEND_URL = 'https://nostr-backend-911227657272.us-central1.run.app';
     </script>
