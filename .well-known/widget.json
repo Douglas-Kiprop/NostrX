@@ -1,0 +1,11 @@
+{
+  "pubkey": "your-nostr-pubkey-in-hex",
+  "widget": {
+    "title": "My Amazing Widget",
+    "appUrl": "https://your-app-url.com",
+    "iconUrl": "https://your-app-url.com/icon.png",
+    "imageUrl": "https://your-app-url.com/thumbnail.png",
+    "buttonTitle": "Launch Widget",
+    "tags": ["tool", "utility", "nostr"]
+  }
+}

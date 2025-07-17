@@ -1,0 +1,11 @@
+{
+  "build": {
+    "outputDirectory": "dev"
+  },
+  "rewrites": [
+    {
+      "source": "/.well-known/widget.json",
+      "destination": "/.well-known/widget.json"
+    }
+  ]
+}
