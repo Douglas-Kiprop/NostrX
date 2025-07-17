@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             userInput.value = '';
 
             try {
-                const response = await fetch('http://127.0.0.1:8080/query-agent', {
+                const response = await fetch(`${window.BACKEND_URL}/query-agent`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -195,4 +195,23 @@ document.addEventListener('DOMContentLoaded', () => {
             addMessage('Error posting to Nostr: ' + error.message, 'ai');
         }
     }
+
+    // Add suggestion bubbles
+    const suggestionBubblesContainer = document.getElementById('suggestion-bubbles');
+
+    const suggestions = [
+        { text: 'Nostr Threads', query: 'I want to generate Nostr threads' },
+        { text: 'Nostr', query: 'What is Nostr' }
+    ];
+
+    suggestions.forEach(suggestion => {
+        const bubble = document.createElement('div');
+        bubble.classList.add('suggestion-bubble');
+        bubble.textContent = suggestion.text;
+        bubble.addEventListener('click', () => {
+            userInput.value = suggestion.query;
+            sendBtn.click(); // Simulate a click on the send button
+        });
+        suggestionBubblesContainer.appendChild(bubble);
+    });
 });

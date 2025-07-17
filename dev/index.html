@@ -26,11 +26,17 @@
             <button id="send-btn">Send</button>
         </div>
     </div>
+    <div id="suggestion-bubbles">
+        <!-- Suggestion bubbles will be added here by script.js -->
+    </div>
 </div>
 <script type="module">
         import * as NostrTools from 'https://esm.sh/nostr-tools@2.10.4';
         console.log('NostrTools loaded:', NostrTools);
         window.NostrTools = NostrTools;
+    </script>
+    <script>
+        window.BACKEND_URL = 'https://nostr-backend-911227657272.us-central1.run.app';
     </script>
     <script src="/script.js"></script>
 </body>
