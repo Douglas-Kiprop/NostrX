@@ -1,10 +1,10 @@
 {
-  "pubkey": "your-nostr-pubkey-in-hex",
+  "pubkey": "8983f3243dd13ab9e4ca037b7706c9a870bc5241a781a7471ef1aada5ff3ce31",
   "widget": {
-    "title": "My Amazing Widget",
-    "appUrl": "https://your-app-url.com",
-    "iconUrl": "https://your-app-url.com/icon.png",
-    "imageUrl": "https://your-app-url.com/thumbnail.png",
+    "title": "NostrChat AI Assisstant ",
+    "appUrl": "https://nostrchat-gold.vercel.app/",
+    "iconUrl": "https://nostrchat-gold.vercel.app/logo512",
+    "imageUrl": "https://nostrchat-gold.vercel.app/thumbnail.png",
     "buttonTitle": "Launch Widget",
     "tags": ["tool", "utility", "nostr"]
   }
