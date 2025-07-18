@@ -1,7 +1,7 @@
 {
   "pubkey": "8983f3243dd13ab9e4ca037b7706c9a870bc5241a781a7471ef1aada5ff3ce31",
   "widget": {
-    "title": "NostrChat AI Assisstant ",
+    "title": "NostrChat",
     "appUrl": "https://nostrchat-gold.vercel.app/",
     "iconUrl": "https://nostrchat-gold.vercel.app/logo512",
     "imageUrl": "https://nostrchat-gold.vercel.app/thumbnail.png",

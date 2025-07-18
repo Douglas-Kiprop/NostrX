@@ -9,28 +9,28 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f2f5;
+    background-color: #1A1A1A; /* Dark background for dark mode */
 }
 
 #chat-container {
     width: 360px;
     max-height: 640px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #333; /* Darker border */
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #2A2A2A; /* Darker container background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
 }
 
 #chat-area {
     flex-grow: 1;
     padding: 10px;
     overflow-y: auto;
-    background-color: #e9ebee;
-    border-bottom: 1px solid #ddd;
+    background-color: #222; /* Dark chat area */
+    border-bottom: 1px solid #444; /* Darker divider */
 }
 
 .message {
@@ -42,56 +42,61 @@ body {
 }
 
 .user-message {
-    background-color: #007bff;
-    color: white;
+    background-color: #444; /* Dark user bubble */
+    color: #FFF; /* White text */
     align-self: flex-end;
     margin-left: auto;
     border-bottom-right-radius: 2px;
 }
 
 .ai-message {
-    background-color: #28a745;
-    color: white;
+    background-color: #1DB954; /* Metallic green for AI */
+    color: #FFF; /* White text */
     align-self: flex-start;
     margin-right: auto;
     border-bottom-left-radius: 2px;
+    box-shadow: 0 2px 4px rgba(29, 185, 84, 0.2); /* Subtle green sheen */
 }
 
 #input-area {
     display: flex;
     padding: 10px;
-    border-top: 1px solid #eee;
-    background-color: #f9f9f9;
+    border-top: 1px solid #444; /* Darker top border */
+    background-color: #2A2A2A; /* Match container background */
 }
 
 #language {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #555; /* Darker border */
     border-radius: 4px;
     margin-right: 5px;
-    background-color: #fff;
+    background-color: #333; /* Darker input background */
+    color: #FFF; /* White text */
 }
 
 #user-input {
     flex-grow: 1;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #555; /* Darker border */
     border-radius: 4px;
     margin-right: 5px;
+    background-color: #333; /* Darker input background */
+    color: #FFF; /* White text */
 }
 
 #send-btn {
     padding: 8px 15px;
-    background-color: #007bff;
-    color: white;
+    background-color: #1DB954; /* Metallic green button */
+    color: #FFF; /* White text */
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s; /* Add transform for hover effect */
 }
 
 #send-btn:hover {
-    background-color: #0056b3;
+    background-color: #17A64A; /* Darker green on hover */
+    transform: translateY(-1px); /* Slight lift effect */
 }
 
 @media (max-width: 360px) {
@@ -103,28 +108,29 @@ body {
     }
 }
 
-
 #suggestion-bubbles {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
+    padding: 10px 0; /* Keep padding for spacing */
+    /* Removed background-color: #2A2A2A; to avoid clutter */
 }
 
 .suggestion-bubble {
     padding: 10px 15px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2); /* Glassy effect */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
-    color: black; /* Changed from white to black for visibility */
+    background: rgba(29, 185, 84, 0.1); /* Light green glassy effect */
+    border: 1px solid #1DB954; /* Metallic green border */
+    color: #FFF; /* White text */
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     font-size: 0.9em;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(29, 185, 84, 0.2); /* Green-tinted shadow */
 }
 
 .suggestion-bubble:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(29, 185, 84, 0.2); /* Darker green on hover */
     transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(29, 185, 84, 0.3); /* Enhanced shadow on hover */
 }

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/query-agent', async (req, res) => {
+router.post('/', async (req, res) => {
     const { prompt, language } = req.body;
 
     if (!prompt) {

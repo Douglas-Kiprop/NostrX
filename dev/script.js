@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // --- End Smart Widget Handler Integration ---
 
-
     // Initialize chat functionality regardless of nostr-tools
     sendBtn.addEventListener('click', async () => {
         const message = userInput.value.trim();
@@ -137,6 +136,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Fetch error:', error);
                 addMessage('Sorry, something went wrong. Please try again.', 'ai');
             }
+        }
+    });
+
+    // Add Enter key support to send message
+    userInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault(); // Prevent default behavior (e.g., newline)
+            sendBtn.click(); // Trigger the existing send button logic
         }
     });
 
