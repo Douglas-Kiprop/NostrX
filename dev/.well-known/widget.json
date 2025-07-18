@@ -3,8 +3,8 @@
   "widget": {
     "title": "NostrChat",
     "appUrl": "https://nostrchat-gold.vercel.app/",
-    "iconUrl": "https://nostrchat-gold.vercel.app/logo512",
-    "imageUrl": "https://nostrchat-gold.vercel.app/thumbnail.png",
+    "iconUrl": "https://nostrchat-gold.vercel.app/NostrChatIcon.png",
+    "imageUrl": "https://nostrchat-gold.vercel.app/NostrChatImage.jpg",
     "buttonTitle": "Launch Widget",
     "tags": ["tool", "utility", "nostr"]
   }
