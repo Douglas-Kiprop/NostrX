@@ -74,15 +74,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 const decoder = new TextDecoder('utf-8');
                 let aiResponse = '';
                 let messageDiv = null;
+                let jsonBuffer = ''; // Buffer to accumulate incomplete JSON chunks
 
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) {
+                        if (jsonBuffer) {
+                            // Try to parse any remaining buffered JSON
+                            try {
+                                const data = JSON.parse(jsonBuffer);
+                                if (data.type === 'text' && data.content) {
+                                    aiResponse += data.content;
+                                    if (!messageDiv) {
+                                        messageDiv = addMessage(aiResponse, 'ai', true);
+                                    } else {
+                                        messageDiv.textContent = aiResponse;
+                                        chatArea.scrollTop = chatArea.scrollHeight;
+                                    }
+                                }
+                            } catch (e) {
+                                console.error('Final JSON buffer parse error:', e, 'buffer:', jsonBuffer);
+                                addMessage('Warning: Incomplete response received.', 'ai');
+                            }
+                        }
                         if (aiResponse) {
                             if (!messageDiv) {
                                 messageDiv = addMessage(aiResponse, 'ai');
                             }
-                            // Add a "Post to Nostr" button after the AI response
+                            // Add a "Post to Nostr" button
                             const postNostrBtn = document.createElement('button');
                             postNostrBtn.textContent = 'Post to Nostr';
                             postNostrBtn.classList.add('post-nostr-btn');
@@ -94,13 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         break;
                     }
 
-                    const chunk = decoder.decode(value, { stream: true });
-                    const lines = chunk.split('\n');
+                    const chunk = decoder.decode(value, { stream: true });                    
+                    jsonBuffer += chunk; // Accumulate chunks
+
+                    // Process complete lines
+                    const lines = jsonBuffer.split('\n');
+                    jsonBuffer = lines.pop(); // Keep the last (potentially incomplete) line in the buffer
 
                     for (const line of lines) {
                         if (line.startsWith('data: ')) {
                             try {
-                                const data = JSON.parse(line.substring(6));
+                                const jsonString = line.substring(6).trim();
+                                if (!jsonString) continue; // Skip empty data lines
+                                const data = JSON.parse(jsonString);
                                 if (data.type === 'end') {
                                     break;
                                 } else if (data.type === 'error') {
@@ -125,9 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                     }
                                 }
                             } catch (e) {
-                                console.error('JSON parsing error:', e, 'for line:', line);
-                                addMessage('Sorry, something went wrong with the response format.', 'ai');
-                                return;
+                                console.error('JSON parsing error for line:', line, 'error:', e);
+                                addMessage('Warning: Skipping malformed response chunk.', 'ai');
+                                // Continue processing instead of returning
                             }
                         }
                     }
